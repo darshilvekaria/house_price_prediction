@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Housing Price Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🏡 Housing Price Predictor</h1>
+        <form method="POST">
+            <label for="district">District:</label>
+            <select name="district" id="district" required>
+                <option value="" disabled selected>Select a district</option>
+                <option>Alameda County</option>
+                <option>Alpine County</option>
+                <option>Amador County</option>
+                <option>Butte County</option>
+                <option>Calaveras County</option>
+                <option>Colusa County</option>
+                <option>Contra Costa County</option>
+                <option>Del Norte County</option>
+                <option>Douglas County</option>
+                <option>El Dorado County</option>
+                <option>Fresno County</option>
+                <option>Glenn County</option>
+                <option>Humboldt County</option>
+                <option>Imperial County</option>
+                <option>Inyo County</option>
+                <option>Kern County</option>
+                <option>Kings County</option>
+                <option>La Paz County</option>
+                <option>Lake County</option>
+                <option>Lassen County</option>
+                <option>Los Angeles County</option>
+                <option>Madera County</option>
+                <option>Marin County</option>
+                <option>Mariposa County</option>
+                <option>Mendocino County</option>
+                <option>Merced County</option>
+                <option>Modoc County</option>
+                <option>Mono County</option>
+                <option>Monterey County</option>
+                <option>Municipio de Tijuana</option>
+                <option>Napa County</option>
+                <option>Nevada County</option>
+                <option>Orange County</option>
+                <option>Placer County</option>
+                <option>Plumas County</option>
+                <option>Riverside County</option>
+                <option>Sacramento County</option>
+                <option>San Benito County</option>
+                <option>San Bernardino County</option>
+                <option>San Diego County</option>
+                <option>San Joaquin County</option>
+                <option>San Luis Obispo County</option>
+                <option>San Mateo County</option>
+                <option>Santa Barbara County</option>
+                <option>Santa Clara County</option>
+                <option>Santa Cruz County</option>
+                <option>Shasta County</option>
+                <option>Sierra County</option>
+                <option>Siskiyou County</option>
+                <option>Solano County</option>
+                <option>Sonoma County</option>
+                <option>Stanislaus County</option>
+                <option>Sutter County</option>
+                <option>Tehama County</option>
+                <option>Trinity County</option>
+                <option>Tulare County</option>
+                <option>Tuolumne County</option>
+                <option>Ventura County</option>
+                <option>Yolo County</option>
+                <option>Yuba County</option>
+            </select>
+
+            <label>Housing Median Age:</label>
+            <input type="number" name="housing_median_age" step="0.1" required>
+
+            <label>Total Rooms:</label>
+            <input type="number" name="total_rooms" required>
+
+            <label>Total Bedrooms:</label>
+            <input type="number" name="total_bedrooms" required>
+
+            <label>Population:</label>
+            <input type="number" name="population" required>
+
+            <label>Households:</label>
+            <input type="number" name="households" required>
+
+            <label>Median Income:</label>
+            <input type="number" step="0.01" name="median_income" required>
+
+            <label for="ocean_proximity">Ocean Proximity:</label>
+            <select name="ocean_proximity" id="ocean_proximity" required>
+                <option value="" disabled selected>Select the ocean proximity</option>
+                <option>INLAND</option>
+                <option>NEAR OCEAN</option>
+                <option>NEAR BAY</option>
+                <option>&lt;1H OCEAN</option>
+                <option>ISLAND</option>
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                💰 Predicted House Value: <strong>${{ "%.2f"|format(prediction) }}</strong>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
