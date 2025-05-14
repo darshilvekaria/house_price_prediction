@@ -6,4 +6,5 @@ __pycache__/
 .env
 *.ipynb_checkpoints
 data/
-model_assets/*
+district_cache
+housing_model
