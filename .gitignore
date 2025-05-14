@@ -7,4 +7,4 @@ __pycache__/
 *.ipynb_checkpoints
 data/
 district_cache
-housing_model
+model_assets/housing_model.pkl
